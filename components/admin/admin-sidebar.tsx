@@ -17,7 +17,7 @@ const navItems = [
   { href: '/admin/testimonials', label: 'Testimonials', icon: MessageSquare },
   { href: '/admin/certifications', label: 'Certifications', icon: Award },
   { href: '/admin/media', label: 'Media', icon: ImageIcon },
-    { href: '/admin/submissions', label: 'Inquiries', icon: Mail },
+  { href: '/admin/submissions', label: 'Inquiries', icon: MessageSquare },
   { href: '/admin/settings', label: 'Settings', icon: Settings },
 ]
 
