@@ -1,15 +1,17 @@
-import type { ComponentProps } from 'react'
 import { prisma } from '@/lib/prisma'
 import { notFound } from 'next/navigation'
 import { ProjectForm } from '@/components/admin/project-form'
+import type { Project, Category } from '@prisma/client'
 
-type ProjectFormProps = ComponentProps<typeof ProjectForm>
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
-export default async function EditProjectPage({ params }: { params: { id: string } }) {
-  let project: ProjectFormProps['initialData'] | null = null
-  let categories: Awaited<ReturnType<typeof prisma.category.findMany>> = []
+export default async function EditProjectPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  let project: Project | null = null
+  let categories: Category[] = []
   try {
-    project = await prisma.project.findUnique({ where: { id: params.id } }) as ProjectFormProps['initialData']
+    project = await prisma.project.findUnique({ where: { id } })
     categories = await prisma.category.findMany({ orderBy: { name: 'asc' } })
   } catch {}
 

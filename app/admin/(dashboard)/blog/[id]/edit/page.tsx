@@ -3,11 +3,15 @@ import { notFound } from 'next/navigation'
 import { BlogForm } from '@/components/admin/blog-form'
 import type { BlogPost, Category } from '@prisma/client'
 
-export default async function EditBlogPage({ params }: { params: { id: string } }) {
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
+export default async function EditBlogPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   let post: BlogPost | null = null
   let categories: Category[] = []
   try {
-    post = await prisma.blogPost.findUnique({ where: { id: params.id } })
+    post = await prisma.blogPost.findUnique({ where: { id } })
     categories = await prisma.category.findMany({ orderBy: { name: 'asc' } })
   } catch {}
 
