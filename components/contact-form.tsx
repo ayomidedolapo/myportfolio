@@ -50,7 +50,7 @@ const onSubmit = async (data: ContactSchemaType) => {
       
       <div>
   <Input 
-    placeholder="Budget (e.g. $2,500 or ₦500,000)" 
+    placeholder="Budget" 
     {...register('budget')} 
   />
 </div>

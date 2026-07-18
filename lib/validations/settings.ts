@@ -12,12 +12,17 @@ export const siteSettingsSchema = z.object({
   whatsappNumber: z.string().min(10),
   seoTitle: z.string().optional(),
   seoDescription: z.string().optional(),
-  socialLinks: z.object({
-    github: z.string().url().optional(),
-    linkedin: z.string().url().optional(),
-    twitter: z.string().url().optional(),
-    dribbble: z.string().url().optional(),
-  }).optional(),
+  yearsExperience: z.string().optional(),
+projectsCompleted: z.string().optional(),
+clientsWorldwide: z.string().optional(),
+ socialLinks: z.object({
+  github: z.string().optional().or(z.literal("")),
+  linkedin: z.string().optional().or(z.literal("")),
+  instagram: z.string().optional().or(z.literal("")),
+  whatsapp: z.string().optional().or(z.literal("")),
+  twitter: z.string().optional().or(z.literal("")),
+  dribbble: z.string().optional().or(z.literal("")),
+}).optional(),
 })
 
 export type SiteSettingsSchemaType = z.infer<typeof siteSettingsSchema>

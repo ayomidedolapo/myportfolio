@@ -53,24 +53,29 @@ export function Navbar({ settings }: { settings?: { heroTitle?: string; whatsapp
             <span className="relative inline-block">
               {logoText}
               {loading && (
-  <>
-    {/* Glassmorphic shimmer sweep — theme aware */}
+               <>
+    {/* Glass shimmer sweep — theme safe */}
     <motion.span
       initial={{ x: '-100%' }}
       animate={{ x: '200%' }}
-      transition={{ duration: 1.2, ease: 'easeInOut', repeat: Infinity }}
-      className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-foreground/60 to-transparent"
-      style={{ mixBlendMode: 'difference', width: '50%' }}
+      transition={{ duration: 1.1, ease: 'easeInOut', repeat: Infinity }}
+      className="pointer-events-none absolute inset-0"
+      style={{
+        background:
+          'linear-gradient(110deg, transparent 20%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0.6) 60%, transparent 80%)',
+        filter: 'blur(6px)',
+      }}
     />
-    {/* Frosted overlay — theme aware */}
+
+    {/* Frost overlay that adapts to theme */}
     <motion.span
       initial={{ opacity: 0 }}
-      animate={{ opacity: [0, 0.4, 0] }}
-      transition={{ duration: 1.2, ease: 'easeInOut', repeat: Infinity }}
-      className="pointer-events-none absolute inset-0 bg-foreground/10 backdrop-blur-[2px]"
+      animate={{ opacity: [0, 0.35, 0] }}
+      transition={{ duration: 1.1, ease: 'easeInOut', repeat: Infinity }}
+      className="pointer-events-none absolute inset-0 bg-foreground/10"
     />
   </>
-)}
+              )}
             </span>
           </Link>
 

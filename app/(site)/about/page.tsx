@@ -73,11 +73,11 @@ export default async function AboutPage() {
             <FadeIn direction="left" className="hidden lg:block">
               <div className="rounded-2xl border border-border bg-card p-8">
                 <h3 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Quick Facts</h3>
-                <dl className="mt-6 space-y-4">
-                  <div><dt className="text-xs text-muted-foreground">Experience</dt><dd className="text-lg font-semibold">3+ Years</dd></div>
-                  <div><dt className="text-xs text-muted-foreground">Projects Completed</dt><dd className="text-lg font-semibold">50+</dd></div>
-                  <div><dt className="text-xs text-muted-foreground">Clients Worldwide</dt><dd className="text-lg font-semibold">20+</dd></div>
-                </dl>
+               <dl className="mt-6 space-y-4">
+  <div><dt className="text-xs text-muted-foreground">Experience</dt><dd className="text-lg font-semibold">{settings.yearsExperience || '3+ Years'}</dd></div>
+  <div><dt className="text-xs text-muted-foreground">Projects Completed</dt><dd className="text-lg font-semibold">{settings.projectsCompleted || '17+'}</dd></div>
+  <div><dt className="text-xs text-muted-foreground">Clients Worldwide</dt><dd className="text-lg font-semibold">{settings.clientsWorldwide || '8+'}</dd></div>
+</dl>
               </div>
             </FadeIn>
           </div>

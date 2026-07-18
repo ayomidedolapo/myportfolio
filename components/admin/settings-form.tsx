@@ -26,6 +26,9 @@ export function SettingsForm({ initialData }: { initialData: Partial<SiteSetting
       seoDescription: initialData.seoDescription || '',
       resumeUrl: initialData.resumeUrl || '',
       socialLinks: initialData.socialLinks || {},
+      yearsExperience: initialData.yearsExperience || '',
+projectsCompleted: initialData.projectsCompleted || '',
+clientsWorldwide: initialData.clientsWorldwide || '',
     }
   })
 
@@ -113,6 +116,12 @@ export function SettingsForm({ initialData }: { initialData: Partial<SiteSetting
         {field('LinkedIn', 'socialLinks.linkedin')}
         {field('Instagram', 'socialLinks.instagram')}
       </>)}
+
+      {section('Quick Facts', <>
+  {field('Years of Experience', 'yearsExperience', 'text')}
+  {field('Projects Completed', 'projectsCompleted', 'text')}
+  {field('Clients Worldwide', 'clientsWorldwide', 'text')}
+</>)}
 
       <div className="flex items-center gap-4">
         <Button type="submit" disabled={isSubmitting} className="rounded-none">

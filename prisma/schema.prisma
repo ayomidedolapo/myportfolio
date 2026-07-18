@@ -27,6 +27,9 @@ model SiteSettings {
   resumeUrl          String?
   contactEmail       String?
   phoneNumber        String?
+  yearsExperience    String? @default("3+")
+  projectsCompleted  String? @default("17+")
+  clientsWorldwide   String? @default("8+")
   whatsappNumber     String  @default("2348079460647")
   seoTitle           String?
   seoDescription     String?
